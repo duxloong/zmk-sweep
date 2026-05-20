@@ -1,2 +1,14 @@
-/* 继承原版左手阵列 */
-#include <boards/shields/cradio/cradio_left.overlay>
+/* 直接引用 ZMK 官方原厂的 cradio overlay 文件 */
+#include <boards/shields/cradio/cradio.overlay>
+
+/* Cradio 默认是左右通用的，所以我们需要在 dongle 中显式指定它去读取左手的矩阵引脚 */
+&kscan0 {
+    /delete-property/ col-gpios;
+    // 这里填入左手实际的列引脚（Cradio原厂左手引脚顺序）
+    col-gpios =
+        <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+        <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+};
