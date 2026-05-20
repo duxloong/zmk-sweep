@@ -22,17 +22,13 @@ include:
   # 1. 编译 Dongle (接收器) 固件
   - board: nice_nano_v2
     shield: cradio_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_BLE_MAX_PERIPHERALS=2
-    artifact-name: cradio_dongle_firmware  # <-- 强制打包为这个名字
+    ext-config: cradio_dongle
 
   # 2. 编译 左手键盘 (从机) 固件
   - board: nice_nano_v2
     shield: cradio_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-    artifact-name: cradio_left_peripheral_firmware  # <-- 强制打包为这个名字
+    ext-config: cradio_left_peripheral
 
   # 3. 编译 右手键盘 固件
   - board: nice_nano_v2
     shield: cradio_right
-    artifact-name: cradio_right_firmware  # <-- 强制打包为这个名字
