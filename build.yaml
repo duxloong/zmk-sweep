@@ -28,6 +28,7 @@ include:
   # 右手固件 (搭载在右手键盘的 nice!nano 上)
   - board: nice_nano_v2
     shield: cradio_right
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: cradio_right_peripheral
 
   # Dongle 固件 (搭载在单独的 nice!nano 接收器上)
