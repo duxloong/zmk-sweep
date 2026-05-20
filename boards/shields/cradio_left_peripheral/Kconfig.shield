@@ -1,2 +1,0 @@
-config SHIELD_CRADIO_LEFT_PERIPHERAL
-    def_bool $(shields_list_contains,cradio_left_peripheral)

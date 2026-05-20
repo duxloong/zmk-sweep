@@ -1,2 +1,0 @@
-/* 引用你原来的 keymap 即可，无需重新写一遍 */
-#include "cradio.keymap"
