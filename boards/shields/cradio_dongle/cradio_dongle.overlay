@@ -1,0 +1,2 @@
+/* 继承原版左手阵列 */
+#include <boards/shields/cradio/cradio_left.overlay>
