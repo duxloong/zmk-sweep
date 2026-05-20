@@ -20,18 +20,19 @@
 ---
 include:
   # 1. 编译 Dongle (接收器) 固件
-  # 使用原厂左手定义，但通过软件配置使其成为接收 2 个从机的 Central 主机
   - board: nice_nano_v2
     shield: cradio_left
     cmake-args: -DCONFIG_ZMK_SPLIT_BLE_MAX_PERIPHERALS=2
+    artifact-name: cradio_dongle_firmware  # <-- 强制打包为这个名字
 
   # 2. 编译 左手键盘 (从机) 固件
-  # 使用原厂左手定义，但通过读取 cradio_left.conf 将其强制降级为从机
   - board: nice_nano_v2
     shield: cradio_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: cradio_left_peripheral_firmware  # <-- 强制打包为这个名字
 
-  # 3. 编译 右手键盘 固件 (保持原厂默认的从机属性)
+  # 3. 编译 右手键盘 固件
   - board: nice_nano_v2
     shield: cradio_right
+    artifact-name: cradio_right_firmware  # <-- 强制打包为这个名字
