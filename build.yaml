@@ -19,7 +19,14 @@
 #
 ---
 include:
+  # 1. 编译 Dongle (接收器) 固件
   - board: nice_nano_v2
-    shield: cradio_left
+    shield: cradio_dongle
+    
+  # 2. 编译 左手键盘 (从机) 固件
+  - board: nice_nano_v2
+    shield: cradio_left_peripheral
+    
+  # 3. 编译 右手键盘 (默认就是从机) 固件
   - board: nice_nano_v2
     shield: cradio_right
